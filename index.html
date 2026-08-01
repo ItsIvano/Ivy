@@ -1,11 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<title>Mi pagina</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio Creativo | Mi Página de Prueba</title>
+    <style>
+        /* Variables de color y estilos globales */
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Contenedor Principal (Tarjeta) */
+        .container {
+            background-color: var(--card-bg);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Insignia / Badge */
+        .badge {
+            background-color: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Títulos y Texto */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        /* Tarjeta de estado en el centro */
+        .status-box {
+            background-color: rgba(15, 23, 42, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22c55e;
+        }
+
+        .status-text {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Botón de Interacción */
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-	<h1>Mi pagina funciona</h1>
-	<p>Sitio Publicado con Github pages.</p>
+
+    <div class="container">
+        <span class="badge">GitHub Pages Activo</span>
+        
+        <h1>¡Mi Sitio Web Funciona!</h1>
+        
+        <p>Esta es una página de prueba publicada directamente desde GitHub. Todo el diseño y la estructura se cargan directamente en el navegador.</p>
+
+        <div class="status-box">
+            <span class="dot"></span>
+            <span class="status-text">Servidor en línea y desplegado correctamente</span>
+        </div>
+
+        <button class="btn" onclick="mostrarMensaje()">¡Haz clic aquí!</button>
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            alert('🎉 ¡Felicidades! Tu página web en GitHub Pages está funcionando al 100%.');
+        }
+    </script>
+
 </body>
 </html>
