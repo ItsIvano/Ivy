@@ -1,154 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espacio Creativo | Mi Página de Prueba</title>
-    <style>
-        /* Variables de color y estilos globales */
-        :root {
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        /* Contenedor Principal (Tarjeta) */
-        .container {
-            background-color: var(--card-bg);
-            max-width: 600px;
-            width: 100%;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Insignia / Badge */
-        .badge {
-            background-color: rgba(99, 102, 241, 0.2);
-            color: #818cf8;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Títulos y Texto */
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-size: 1.05rem;
-        }
-
-        /* Tarjeta de estado en el centro */
-        .status-box {
-            background-color: rgba(15, 23, 42, 0.5);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #22c55e;
-        }
-
-        .status-text {
-            color: var(--text-main);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Botón de Interacción */
-        .btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
-        }
-
-        .btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(99, 102, 241, 0.5);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MishiAdopta - Tienda de Gatitos</title>
+  <!-- Tailwind CSS CDN para un diseño moderno y fluido -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <div class="container">
-        <span class="badge">GitHub Pages Activo</span>
-        
-        <h1>¡Mi Sitio Web Funciona!</h1>
-        
-        <p>Esta es una página de prueba publicada por Ivy.</p>
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="bg-rose-500 text-white p-2.5 rounded-2xl shadow-lg shadow-rose-500/30">
+          <i data-lucide="cat" class="w-6 h-6"></i>
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent">
+          MishiAdopta
+        </span>
+      </div>
 
-        <div class="status-box">
-            <span class="dot"></span>
-            <span class="status-text">Esta es mi primer pagina web</span>
+      <!-- Botón Carrito -->
+      <button id="cart-btn" class="relative bg-slate-900 text-white px-5 py-2.5 rounded-2xl font-medium flex items-center gap-2 hover:bg-slate-800 transition shadow-md">
+        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+        <span>Carrito</span>
+        <span id="cart-count" class="bg-rose-500 text-white text-xs font-bold px-2 py-0.5 rounded-full hidden">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-rose-50/50 to-transparent py-12 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-rose-500 font-semibold text-sm tracking-wide uppercase bg-rose-100/60 px-4 py-1.5 rounded-full">
+        Proyecto Base de Datos
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
+        Encuentra a tu nuevo compañero felino
+      </h1>
+      <p class="text-slate-600 mt-3 text-lg">
+        Gatitos vacunados, educados y listos para llenar tu hogar de amor.
+      </p>
+    </div>
+  </section>
+
+  <!-- CATALOGO -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+    <div id="kittens-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Los gatitos se generan dinámicamente con JavaScript -->
+    </div>
+  </main>
+
+  <!-- DRAWER DEL CARRITO -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+    <div id="cart-overlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"></div>
+    <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between">
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i data-lucide="shopping-cart" class="w-5 h-5 text-rose-500"></i> Tu Carrito
+          </h2>
+          <button id="close-cart-btn" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
         </div>
 
-        <button class="btn" onclick="mostrarMensaje()">¡Haz clic aquí!</button>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 divide-y divide-slate-100">
+          <!-- Items del carrito -->
+        </div>
+
+        <div class="p-6 border-t border-slate-100 bg-slate-50/50 space-y-4">
+          <div class="flex justify-between text-base font-medium text-slate-900">
+            <p>Total Cuota Adopción</p>
+            <p id="cart-total">$0 USD</p>
+          </div>
+          <button id="checkout-btn" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg shadow-rose-500/25 transition flex items-center justify-center gap-2">
+            Procesar Adopción
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        function mostrarMensaje() {
-            alert('Holi, te mando un beso.');
-        }
-    </script>
+  <!-- MODAL CHECKOUT -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative">
+      <button id="close-modal-btn" class="absolute top-6 right-6 text-slate-400 hover:text-slate-600">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
 
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="credit-card" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900">Finalizar Adopción</h3>
+        <p class="text-slate-500 text-sm mt-1">Ingresa tus datos para registrar la transacción.</p>
+      </div>
+
+      <form id="checkout-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Nombre Completo</label>
+          <input type="text" required placeholder="Ej: Juan Pérez" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Correo Electrónico</label>
+          <input type="email" required placeholder="juan@ejemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Tarjeta de Crédito (Prueba)</label>
+          <input type="text" required placeholder="4532 •••• •••• 8890" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-sm">
+        </div>
+        <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition mt-2">
+          Pagar y Confirmar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT LÓGICA -->
+  <script>
+    // 1. Datos Mock (Estructura de la tabla 'gatitos' en tu BD)
+    const kittens = [
+      { id: 1, name: "Mimi", breed: "Siamés", age: "2 meses", price: 120, image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" },
+      { id: 2, name: "Oliver", breed: "British Shorthair", age: "3 meses", price: 200, image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=600" },
+      { id: 3, name: "Luna", breed: "Persa", age: "2.5 meses", price: 180, image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=600" },
+      { id: 4, name: "Milo", breed: "Maine Coon", age: "4 meses", price: 250, image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&q=80&w=600" },
+      { id: 5, name: "Simba", breed: "Atigrado", age: "2 meses", price: 95, image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&q=80&w=600" },
+      { id: 6, name: "Bella", breed: "Ragdoll", age: "3 meses", price: 210, image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=600" },
+    ];
+
+    let cart = [];
+
+    // 2. Renderizar Gatitos
+    function renderKittens() {
+      const grid = document.getElementById('kittens-grid');
+      grid.innerHTML = kittens.map(kitten => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div class="relative h-64 overflow-hidden">
+            <img src="${kitten.image}" alt="${kitten.name}" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+              ${kitten.breed}
+            </span>
+          </div>
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+            <div>
+              <div class="flex justify-between items-baseline">
+                <h3 class="text-xl font-bold text-slate-900">${kitten.name}</h3>
+                <span class="text-xs text-slate-500">${kitten.age}</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-50">
+              <div>
+                <span class="text-xs text-slate-400 block">Cuota</span>
+                <span class="text-xl font-extrabold text-slate-900">$${kitten.price}</span>
+              </div>
+              <button onclick="addToCart(${kitten.id})" class="bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white p-3 rounded-2xl transition duration-200">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // 3. Lógica del Carrito
+    function addToCart(id) {
+      const kitten = kittens.find(k => k.id === id);
+      if (!cart.some(item => item.id === id)) {
+        cart.push(kitten);
+        updateCartUI();
+      }
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cartCount = document.getElementById('cart-count');
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+
+      // Contador
+      if (cart.length > 0) {
+        cartCount.innerText = cart.length;
+        cartCount.classList.remove('hidden');
+      } else {
+        cartCount.classList.add('hidden');
+      }
+
+      // Items
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <i data-lucide="cat" class="w-12 h-12 mx-auto mb-2 opacity-50"></i>
+            <p>El carrito está vacío</p>
+          </div>
+        `;
+      } else {
+        cartItems.innerHTML = cart.map(item => `
+          <div class="py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <img src="${item.image}" class="w-14 h-14 rounded-2xl object-cover">
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
+                <p class="text-xs text-slate-500">$${item.price} USD</p>
+              </div>
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-rose-500 p-1">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        `).join('');
+      }
+
+      // Total
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      cartTotal.innerText = `$${total} USD`;
+
+      lucide.createIcons();
+    }
+
+    // 4. Controladores de Eventos (UI/Modales)
+    const cartDrawer = document.getElementById('cart-drawer');
+    const checkoutModal = document.getElementById('checkout-modal');
+
+    document.getElementById('cart-btn').onclick = () => cartDrawer.classList.remove('hidden');
+    document.getElementById('close-cart-btn').onclick = () => cartDrawer.classList.add('hidden');
+    document.getElementById('cart-overlay').onclick = () => cartDrawer.classList.add('hidden');
+
+    document.getElementById('checkout-btn').onclick = () => {
+      if (cart.length === 0) return alert("Agrega al menos un gatito al carrito.");
+      cartDrawer.classList.add('hidden');
+      checkoutModal.classList.remove('hidden');
+    };
+
+    document.getElementById('close-modal-btn').onclick = () => checkoutModal.classList.add('hidden');
+
+    document.getElementById('checkout-form').onsubmit = (e) => {
+      e.preventDefault();
+      alert("¡Proceso exitoso! Aquí es donde tu backend insertaría los datos en la tabla 'Ventas' / 'Adopciones'.");
+      cart = [];
+      updateCartUI();
+      checkoutModal.classList.add('hidden');
+    };
+
+    // Inicialización
+    renderKittens();
+  </script>
 </body>
 </html>
