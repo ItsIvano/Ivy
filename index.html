@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MishiAdopta - Tienda de Gatitos</title>
+  <title>MishiAdopta - La página de Ivy</title>
   <!-- Tailwind CSS CDN para un diseño moderno y fluido -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
@@ -22,9 +22,12 @@
         <div class="bg-rose-500 text-white p-2.5 rounded-2xl shadow-lg shadow-rose-500/30">
           <i data-lucide="cat" class="w-6 h-6"></i>
         </div>
-        <span class="text-xl font-bold bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent">
-          MishiAdopta
-        </span>
+        <div>
+          <span class="text-xl font-bold bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent block leading-tight">
+            MishiAdopta
+          </span>
+          <span class="text-xs font-semibold text-slate-400">Una página de Ivy</span>
+        </div>
       </div>
 
       <!-- Botón Carrito -->
@@ -40,13 +43,13 @@
   <section class="bg-gradient-to-b from-rose-50/50 to-transparent py-12 px-4 text-center">
     <div class="max-w-3xl mx-auto">
       <span class="text-rose-500 font-semibold text-sm tracking-wide uppercase bg-rose-100/60 px-4 py-1.5 rounded-full">
-        Proyecto Base de Datos
+        Una página de Ivy • Proyecto Base de Datos
       </span>
       <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
         Encuentra a tu nuevo compañero felino
       </h1>
       <p class="text-slate-600 mt-3 text-lg">
-        Gatitos vacunados, educados y listos para llenar tu hogar de amor.
+        Gatitos vacunados, educados y listos para un hogar. ¡Todas las adopciones son con cooperación voluntaria!
       </p>
     </div>
   </section>
@@ -65,7 +68,7 @@
       <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
         <div class="p-6 border-b border-slate-100 flex items-center justify-between">
           <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-            <i data-lucide="shopping-cart" class="w-5 h-5 text-rose-500"></i> Tu Carrito
+            <i data-lucide="shopping-cart" class="w-5 h-5 text-rose-500"></i> Tu Carrito de Adopción
           </h2>
           <button id="close-cart-btn" class="p-2 text-slate-400 hover:text-slate-600 rounded-lg">
             <i data-lucide="x" class="w-5 h-5"></i>
@@ -77,9 +80,9 @@
         </div>
 
         <div class="p-6 border-t border-slate-100 bg-slate-50/50 space-y-4">
-          <div class="flex justify-between text-base font-medium text-slate-900">
-            <p>Total Cuota Adopción</p>
-            <p id="cart-total">$0 USD</p>
+          <div class="flex justify-between items-center text-base font-medium text-slate-900">
+            <p>Modalidad</p>
+            <p class="text-xs bg-emerald-100 text-emerald-700 font-bold px-2.5 py-1 rounded-full">Cooperación Voluntaria</p>
           </div>
           <button id="checkout-btn" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg shadow-rose-500/25 transition flex items-center justify-center gap-2">
             Procesar Adopción
@@ -98,10 +101,10 @@
 
       <div class="text-center mb-6">
         <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-3">
-          <i data-lucide="credit-card" class="w-6 h-6"></i>
+          <i data-lucide="heart-handshake" class="w-6 h-6"></i>
         </div>
         <h3 class="text-xl font-bold text-slate-900">Finalizar Adopción</h3>
-        <p class="text-slate-500 text-sm mt-1">Ingresa tus datos para registrar la transacción.</p>
+        <p class="text-slate-500 text-sm mt-1">Página creada por Ivy • Registro de adopción</p>
       </div>
 
       <form id="checkout-form" class="space-y-4">
@@ -114,11 +117,11 @@
           <input type="email" required placeholder="juan@ejemplo.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-sm">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Tarjeta de Crédito (Prueba)</label>
-          <input type="text" required placeholder="4532 •••• •••• 8890" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-sm">
+          <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Monto de Cooperación Voluntaria ($)</label>
+          <input type="number" min="1" required placeholder="Ingresa el monto a donar" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-rose-500/20 focus:border-rose-500 text-sm">
         </div>
         <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition mt-2">
-          Pagar y Confirmar
+          Confirmar Adopción
         </button>
       </form>
     </div>
@@ -126,14 +129,14 @@
 
   <!-- SCRIPT LÓGICA -->
   <script>
-    // 1. Datos Mock (Estructura de la tabla 'gatitos' en tu BD)
+    // 1. Datos de Gatitos (Incluye a Mittens)
     const kittens = [
-      { id: 1, name: "Mimi", breed: "Siamés", age: "2 meses", price: 120, image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" },
-      { id: 2, name: "Oliver", breed: "British Shorthair", age: "3 meses", price: 200, image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=600" },
-      { id: 3, name: "Luna", breed: "Persa", age: "2.5 meses", price: 180, image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=600" },
-      { id: 4, name: "Milo", breed: "Maine Coon", age: "4 meses", price: 250, image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&q=80&w=600" },
-      { id: 5, name: "Simba", breed: "Atigrado", age: "2 meses", price: 95, image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&q=80&w=600" },
-      { id: 6, name: "Bella", breed: "Ragdoll", age: "3 meses", price: 210, image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=600" },
+      { id: 1, name: "Mittens", breed: "Atigrado", age: "2.5 meses", image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&q=80&w=600" },
+      { id: 2, name: "Mimi", breed: "Siamés", age: "2 meses", image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" },
+      { id: 3, name: "Oliver", breed: "British Shorthair", age: "3 meses", image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=600" },
+      { id: 4, name: "Luna", breed: "Persa", age: "2.5 meses", image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=600" },
+      { id: 5, name: "Milo", breed: "Maine Coon", age: "4 meses", image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&q=80&w=600" },
+      { id: 6, name: "Bella", breed: "Ragdoll", age: "3 meses", image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=600" },
     ];
 
     let cart = [];
@@ -158,10 +161,10 @@
             </div>
             <div class="flex items-center justify-between pt-2 border-t border-slate-50">
               <div>
-                <span class="text-xs text-slate-400 block">Cuota</span>
-                <span class="text-xl font-extrabold text-slate-900">$${kitten.price}</span>
+                <span class="text-xs text-slate-400 block">Adopción</span>
+                <span class="text-sm font-bold text-rose-500">Cooperación voluntaria</span>
               </div>
-              <button onclick="addToCart(${kitten.id})" class="bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white p-3 rounded-2xl transition duration-200">
+              <button onclick="addToCart(${kitten.id})" class="bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white p-3 rounded-2xl transition duration-200" title="Agregar gatito">
                 <i data-lucide="plus" class="w-5 h-5"></i>
               </button>
             </div>
@@ -188,7 +191,6 @@
     function updateCartUI() {
       const cartCount = document.getElementById('cart-count');
       const cartItems = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
 
       // Contador
       if (cart.length > 0) {
@@ -213,7 +215,7 @@
               <img src="${item.image}" class="w-14 h-14 rounded-2xl object-cover">
               <div>
                 <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
-                <p class="text-xs text-slate-500">$${item.price} USD</p>
+                <p class="text-xs text-rose-500 font-medium">Cooperación voluntaria</p>
               </div>
             </div>
             <button onclick="removeFromCart(${item.id})" class="text-slate-400 hover:text-rose-500 p-1">
@@ -222,10 +224,6 @@
           </div>
         `).join('');
       }
-
-      // Total
-      const total = cart.reduce((sum, item) => sum + item.price, 0);
-      cartTotal.innerText = `$${total} USD`;
 
       lucide.createIcons();
     }
@@ -248,7 +246,7 @@
 
     document.getElementById('checkout-form').onsubmit = (e) => {
       e.preventDefault();
-      alert("¡Proceso exitoso! Aquí es donde tu backend insertaría los datos en la tabla 'Ventas' / 'Adopciones'.");
+      alert("¡Adopción registrada con éxito! Gracias por tu cooperación voluntaria.");
       cart = [];
       updateCartUI();
       checkoutModal.classList.add('hidden');
